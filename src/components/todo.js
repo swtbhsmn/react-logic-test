@@ -8,7 +8,7 @@ export default class Todo extends Component {
 
             data: "",
             arrayList: [],
-            error:""
+            error: ""
 
         }
 
@@ -29,27 +29,27 @@ export default class Todo extends Component {
         let info = {
             id: arrayList.length + 1,
             data: data,
-            time:Date.now()
+            time: Date.now()
         }
 
-        if(data.length!==0){
+        if (data.length !== 0) {
             arrayList.push(info)
-            this.setState({ data: "",error:"" });
+            this.setState({ data: "", error: "" });
         }
-        else{
+        else {
 
-           this.setState({error:"Make sure input field is not empty."})
-           
+            this.setState({ error: "Make sure input field is not empty." })
+
         }
-        
 
-        
-       // console.log(arrayList);
+
+
+        // console.log(arrayList);
     }
 
 
     render() {
-        const { data, arrayList ,error} = this.state
+        const { data, arrayList, error } = this.state
         return (
             <div className="todo-container">
                 <div className="todo-title-input">
@@ -58,7 +58,7 @@ export default class Todo extends Component {
                     <div className="user-txt-input">
                         <form onSubmit={this.onSubmitHandler}>
                             <input autoFocus type="text" placeholder="Write here!" name="data" className="user-input-field" autoComplete="off" value={data} onChange={this.onChangeHandler} />
-                            
+
                             <button type="submit" className="btn-for-save"><span>&#10010;</span></button>
                         </form>
 
@@ -70,26 +70,28 @@ export default class Todo extends Component {
                         <>
 
                             <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>DATA</th>
-                                    <th>OPERATIONS</th>
-                                </tr>
-
-
-
-                            {arrayList.map((item, key) => {
-                                return (
-                                    <tr key={key}>
-                                        <td>{item.id}</td>
-                                        <td>{item.data}</td>
-                                        <td>{item.time}</td>
-                                        
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>DATA</th>
+                                        <th>OPERATIONS</th>
                                     </tr>
+                                </thead>
+
+                                <tbody>
+                                    {arrayList.map((item, key) => {
+                                        return (
+                                            <tr key={key}>
+                                                <td>{item.id}</td>
+                                                <td>{item.data}</td>
+                                                <td>{item.time}</td>
+
+                                            </tr>
 
 
-                                )
-                            })}
+                                        )
+                                    })}
+                                </tbody>
                             </table>
                         </>
                     }

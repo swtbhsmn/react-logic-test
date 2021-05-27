@@ -21,15 +21,15 @@ export default class Main extends Component {
 
                             <ul className="active-section">
 
-                                <li className="nav-item"><a className="active"  href="#1">To-do</a></li>
-                                
+                                <li className="nav-item"><a className="active" href="#1">To-do</a></li>
+
 
                             </ul>
                             <b>ReactJs Logical Test</b>
                             <ul className="active-section">
 
-                            <li className="nav-item"><a href="#2">Questions</a></li>
-                              
+                                <li className="nav-item"><a href="#2">Questions</a></li>
+
 
                             </ul>
 
