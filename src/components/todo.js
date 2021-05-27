@@ -44,7 +44,7 @@ export default class Todo extends Component {
         
 
         
-        console.log(arrayList);
+       // console.log(arrayList);
     }
 
 
@@ -54,10 +54,10 @@ export default class Todo extends Component {
             <div className="todo-container">
                 <div className="todo-title-input">
                     <h3>Todo Application</h3>
-                    <span className="app-description">"To do" list, i.e., list of things that need to be done. Miscellaneous.</span>
+                    <span className="app-description">"To do" list, i.e., list of things that need to be done.</span>
                     <div className="user-txt-input">
                         <form onSubmit={this.onSubmitHandler}>
-                            <input autoFocus type="text" name="data" className="user-input-field" autoComplete="off" value={data} onChange={this.onChangeHandler} />
+                            <input autoFocus type="text" placeholder="Write here!" name="data" className="user-input-field" autoComplete="off" value={data} onChange={this.onChangeHandler} />
                             
                             <button type="submit" className="btn-for-save"><span>&#10010;</span></button>
                         </form>
@@ -77,7 +77,6 @@ export default class Todo extends Component {
                                 </tr>
 
 
-                           
 
                             {arrayList.map((item, key) => {
                                 return (

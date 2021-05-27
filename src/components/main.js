@@ -13,7 +13,7 @@ export default class Main extends Component {
                 <div className="side-nav-layout">
                     <div className="fixed-layout">
                         <div className="topic">
-                            <h4>Assignments</h4>
+                            <b >Assignments</b>
                         </div>
 
                         <nav className="nav" >

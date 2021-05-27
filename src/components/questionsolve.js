@@ -11,6 +11,7 @@ export default class QuestionSolve extends Component {
             evenArray: [],
             visible_a_2: false,
             visible_a_4: false,
+            visible_a_5: false,
             array_of_consecutive_numbers: {
                 array_of_consecutive_number1: [0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0],
                 array_of_consecutive_number2: [1, 0, 0, 0, 0, 1, 0, 0, 0, 1]
@@ -19,7 +20,7 @@ export default class QuestionSolve extends Component {
             array_of_consecutive_numbers_q3: [0, 1, 2, 3, 4, 5, 6, 7, 7, 8, 9, 10],
             answer3: [],
             answer4: {},
-            obj: {"id" : 4, "name": "abc", "id" : 10, "name" : "ab2","id": 5, "name" : "abc3", "id" : 6, "name" : "abc5"} 
+           // obj: {"id" : 4, "name": "abc", "id" : 10, "name" : "ab2","id": 5, "name" : "abc3", "id" : 6, "name" : "abc5"} 
 
 
 
@@ -148,7 +149,7 @@ export default class QuestionSolve extends Component {
             .then(response => response.json())
             .then(response => {
 
-                console.log(response);
+                //console.log(response);
                 this.setState({ answer4: response })
 
 
@@ -163,7 +164,10 @@ export default class QuestionSolve extends Component {
     }
 
     questionFive = (e) => {
-       console.log(JSON.stringify(this.state.obj));
+      
+    // console.log(JSON.stringify({"id" : 4, "name": "abc", "id" : 10, "name" : "ab2","id": 5, "name" : "abc3", "id" : 6, "name" : "abc5"}) )
+
+       
     }
 
 
@@ -272,12 +276,24 @@ export default class QuestionSolve extends Component {
                         <b>Answer:</b>
 
                         <div className="divider"></div>
-                        <button className="button-btn" onClick={this.questionFive}>
-                            {this.state.evenArray.length !== 0 ? "Hide" : "Click To View Answer"}</button>
+                        <button className="button-btn" onClick={() => this.setState({ visible_a_5: !this.state.visible_a_5 })}>
+                            {this.state.visible_a_5? "Hide" : "Click To View Answer"}</button>
 
-                        {this.state.evenArray.length !== 0 ?
-                            <div>
+                        {this.state.visible_a_5 ?
+                            <div className="divider">
+                                <code>
+                                &#123;
+                                <br/>
+                               &nbsp;&nbsp;"id" : 4, "name" : "abc",<br/>
+                               &nbsp;&nbsp;"id" : 10,"name" : "ab2",<br/>
+                               &nbsp;&nbsp;"id" : 5, "name" : "abc3",<br/>
+                               &nbsp;&nbsp;"id" : 6, "name" : "abc5"<br/>
+                               &#125;
+                            </code>
 
+                              <p>This type of format disallow duplicate keys in object literals (no-dupe-keys)</p>
+                              <p>It should be dictionary of dictionary or dictionary of iterables(list,array,tuples etc) </p>
+                            
                             </div>
                             :
                             <div>
