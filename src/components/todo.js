@@ -3,41 +3,99 @@ import React, { Component } from 'react'
 export default class Todo extends Component {
     constructor(props) {
         super(props)
-    
+
         this.state = {
-             data:""
+
+            data: "",
+            arrayList: [],
+            error:""
+
         }
+
         this.onChangeHandler.bind(this);
         this.onSubmitHandler.bind(this);
     }
 
-    onChangeHandler=(e)=>{
-        
-        this.setState({[e.target.name]: e.target.value})
+    onChangeHandler = (e) => {
+
+        this.setState({ [e.target.name]: e.target.value })
     }
 
-    onSubmitHandler=(e)=>{
+    onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state.data);
+
+        const { data, arrayList } = this.state;
+
+        let info = {
+            id: arrayList.length + 1,
+            data: data,
+            time:Date.now()
+        }
+
+        if(data.length!==0){
+            arrayList.push(info)
+            this.setState({ data: "",error:"" });
+        }
+        else{
+
+           this.setState({error:"Make sure input field is not empty."})
+           
+        }
+        
+
+        
+        console.log(arrayList);
     }
-    
+
+
     render() {
-        const {data} = this.state
+        const { data, arrayList ,error} = this.state
         return (
             <div className="todo-container">
                 <div className="todo-title-input">
                     <h3>Todo Application</h3>
-                    <span className="app-discription">"To do" list, i.e., list of things that need to be done. Miscellaneous.</span>
+                    <span className="app-description">"To do" list, i.e., list of things that need to be done. Miscellaneous.</span>
                     <div className="user-txt-input">
                         <form onSubmit={this.onSubmitHandler}>
-                        <input autoFocus  type="text" name="data" className="user-input-field" value={data} onChange={this.onChangeHandler}/>
-                        
-                        <button type="submit" className="btn-for-save"><span>&#10010;</span></button>
+                            <input autoFocus type="text" name="data" className="user-input-field" autoComplete="off" value={data} onChange={this.onChangeHandler} />
+                            
+                            <button type="submit" className="btn-for-save"><span>&#10010;</span></button>
                         </form>
-                        
+
                     </div>
+                    {<span className="error">{error}</span>}
                 </div>
-               
+                <div className="todo-data-show-div">
+                    {arrayList.length === 0 ? <p>Your Todo List Is Empty.</p> :
+                        <>
+
+                            <table>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>DATA</th>
+                                    <th>OPERATIONS</th>
+                                </tr>
+
+
+                           
+
+                            {arrayList.map((item, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{item.id}</td>
+                                        <td>{item.data}</td>
+                                        <td>{item.time}</td>
+                                        
+                                    </tr>
+
+
+                                )
+                            })}
+                            </table>
+                        </>
+                    }
+                </div>
+
             </div>
         )
     }

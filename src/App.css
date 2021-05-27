@@ -1,7 +1,27 @@
 .home-screen-layout{
   width: 100%;
   min-height: 100vh;
+  display: flex;
 }
+.side-nav-layout{
+  height: 100vh;
+  width: 20%;
+  position: relative;
+}
+.view-layout{
+  width: 80%;
+}
+.fixed-layout{
+  width: 20%;
+  position:fixed ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+
+}
+
 
 .todo-container{
   width: 100%;
@@ -20,7 +40,7 @@
   background-color: rgb(57, 82, 161);
   color: #FFF;
 }
-.app-discription{
+.app-description{
   font-size:x-small;
 }
 .user-txt-input{
@@ -45,7 +65,7 @@
 }
 
 .btn-for-save{
-margin-left: 5px;
+  margin-left: 5px;
   border: #FFF;
   height: 40px;
   width: 40px;
@@ -58,4 +78,97 @@ margin-left: 5px;
 .btn-for-save:hover{
   background-color: rgb(57, 82, 161) ;
   color: #FFF;
+}
+
+.todo-data-show-div{
+  width: 100%;
+  margin-top: 20px;
+  min-height: calc(100vh - 320px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  max-height: 250px;
+}
+
+@media only screen and (max-width: 600px) {
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    max-height: 250px;
+  }
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.q-solve-container{
+  margin-top: 25px;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.q-number-container{
+  padding: 10px;
+}
+
+.topic{
+  padding: 20px;
+}
+
+.error{
+  padding: 10px;
+  font-size:small;
+  color: #FFF;
+  height: 30px;
+}
+.active-section{
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+
+}
+
+
+
+.nav-item a {
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  color: #2d9e5c;
+}
+
+.question{
+  padding: 10px;
+}
+.divider{
+  margin-top: 20px;
+}
+.button-btn {
+  background-color: rgb(57, 82, 161) ;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 14px 40px;
 }
